@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Забрать собаку</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="blocks/header.html  :: header0" class="container"></div>
+<div class="container mb-5">
+    <form action="/wantDog" method="post">
+        <div class="form-group">
+            <label for="name">ФИО</label>
+            <input type="text" name="userName" id="name" placeholder="Введите Ваше ФИО" class="form-control">
+        </div><br>
+        <div class="form-group">
+            <label for="dogName">Кличка собаки</label>
+            <input type="text" name="dogName" id="dogName" placeholder="Введите кличку" class="form-control">
+        </div><br>
+        <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input type="tel" name="phone" id="phone" placeholder="+7xxx-xxx-xxxx" class="form-control" pattern="+7[0-9]{3}-[0-9]{3}-[0-9]{2}[0-9]{2}">
+        </div><br>
+        <div class="form-group">
+            <label for="mail">Ваша почта</label>
+            <input type="email" name="email" id="mail" placeholder="Введите почту для связи" class="form-control">
+        </div><br>
+        <div class="form-group">
+            <label for="FormControlSelect">Для каких целей хотите взять собаку?</label>
+            <p><select class="form-control" id="FormControlSelect" name="goal" aria-describedby="include">
+                <option selected>Выберите вариант</option>
+                <option>Домашний любимец</option>
+                <option>Охранное животное</option>
+                <option>Поводырь</option>
+                <option>Другие цели</option>
+            </select>
+                <small id="include" class="form-text text-muted">
+                    Если вы выбрали вариант "Другие цели", то необходимо описать их в поле ниже (общение производится только с будущим хозяином).
+                </small></p>
+        </div>
+        <div class="form-group">
+            <label for="disription">Ответьте на вопросы</label>
+            <textarea class="form-control" name="answers" id="disription" placeholder="Введите ответы" rows="4" aria-describedby="discr1"></textarea>
+            <small id="discr1" class="form-text text-muted">
+                Где будет жить собака? Все ли члены семьи согласны? Нет ли аллергии у кого-либо из членов семьи? Есть ли маленькие дети? Чем и как планируете кормить?
+            </small>
+        </div><br>
+        <div class="form-group">
+            <label for="contr">Согласны ли на курирование животного приютом?</label>
+            <p><select class="form-control" id="contr" name="control" aria-describedby="cor">
+                <option selected>Выберите вариант</option>
+                <option>Да</option>
+                <option>Нет</option>
+            </select><small id="cor" class="form-text text-muted">
+                Приезд в гости, звонки, фотографии, вопросы.
+            </small></p>
+        </div>
+        <button class="btn btn-secondary btn-primary" type="submit">Отправить</button><br>
+    </form>
+</div>
+<div th:insert="blocks/footer.html  :: footer" class="container"></div>
+</body>
+</html>
